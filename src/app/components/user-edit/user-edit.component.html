@@ -1,0 +1,28 @@
+<h1 class="jumbotron-heading text-center">แก้ไขข้อมูลสมาชิก</h1>
+<form>
+    <div class="mb-3">
+      <label for="prefix_id" class="form-label">คำนำหน้า</label>
+      <select class="form-control" id="prefix_id" name="prefix_id" [(ngModel)]="data.prefix_id">
+        <option *ngFor="let prefix of prefixs" value="{{ prefix.id }}">{{ prefix.prefix_name }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">ชื่อ</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="data.name" placeholder="ชื่อ">
+    </div>
+    <div class="mb-3">
+      <label for="lname" class="form-label">สกุล</label>
+      <input type="text" class="form-control" id="lname" name="lname" [(ngModel)]="data.lname" placeholder="สกุล">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">อีเมล</label>
+      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="data.email" placeholder="อีเมล">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">รหัสผ่าน</label>
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="data.password"
+        placeholder="รหัสผ่าน">
+    </div>
+    <button class="btn btn-success" (click)="EditData()">บันทึก</button>
+  </form>
+  
