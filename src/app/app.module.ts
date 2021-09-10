@@ -14,6 +14,7 @@ import { AccountAddComponent } from './components/account-add/account-add.compon
 import { AccountEditComponent } from './components/account-edit/account-edit.component';
 import { AccountsMoneyComponent } from './components/accounts-money/accounts-money.component';
 import { AccountMoneyAddComponent } from './components/account-money-add/account-money-add.component';
+import { AccountListComponent } from './components/account-list/account-list.component';
 
 const appRoutes: Routes = [
   { path: "", component: UsersComponent },
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     AccountAddComponent,
     AccountEditComponent,
     AccountsMoneyComponent,
-    AccountMoneyAddComponent
+    AccountMoneyAddComponent,
+    AccountListComponent
   ],
   imports: [
     BrowserModule,
