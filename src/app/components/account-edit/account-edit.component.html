@@ -1,0 +1,13 @@
+<h1 class="jumbotron-heading text-center">แก้ไขข้อมูลบัญชีกระเป๋าเงินอิเล็กทรอนิกส์</h1>
+<form>
+    <div class="mb-3">
+        <label for="account_no" class="form-label">เลขที่บัญชี</label>
+        <input type="text" class="form-control" id="account_no" name="account_no" [(ngModel)]="data.account_no" placeholder="เลขที่บัญชี">
+      </div>
+      <div class="mb-3">
+        <label for="account_name" class="form-label">ชื่อบัญชี</label>
+        <input type="text" class="form-control" id="account_name" name="account_name" [(ngModel)]="data.account_name" placeholder="ชื่อบัญชี">
+      </div>
+    <button class="btn btn-success" (click)="EditData()">บันทึก</button>
+  </form>
+  

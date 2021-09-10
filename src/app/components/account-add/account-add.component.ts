@@ -4,32 +4,30 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  selector: 'app-account-add',
+  templateUrl: './account-add.component.html',
+  styleUrls: ['./account-add.component.css']
 })
-export class UsersComponent implements OnInit {
-
-  datas: any = [];
-  // show = true;
+export class AccountAddComponent implements OnInit {
+  prefixs: any = [];
+  data: any = {};
   constructor(
     private httpClient: HttpClient,
     private router: Router,
     private api: ApiService
   ) { }
   ngOnInit(): void {
-    this.LoadData();
+    this.Index();
   }
-  LoadData() {
-    this.httpClient.get(this.api.url + "api/users").subscribe((res: any) => {
-      this.datas = res;
+  Index() {
+    this.httpClient.get(this.api.url + "api/prefixs").subscribe((res: any) => {
+      this.prefixs = res;
     });
   }
-  Delete(id: any) {
-    if (!confirm("คุณต้องการลบข้อมูลไหม ?")) return;
-    this.httpClient.delete(this.api.url + "api/user/del/" + id).subscribe((res: any) => {
+  AddData() {
+    this.httpClient.post(this.api.url + "api/account/add", this.data).subscribe((res: any) => {
       if (res.status == "OK") {
-        this.LoadData();
+        this.router.navigate(['/accounts']);
       }
     }, (error: any) => {
       var errors = error.error.errors;
@@ -42,8 +40,5 @@ export class UsersComponent implements OnInit {
       }
       alert(text);
     });
-  }
-  Edit(id: any) {
-    this.router.navigate(['/user-edit/' + id]);
   }
 }

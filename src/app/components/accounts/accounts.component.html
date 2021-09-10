@@ -1,22 +1,22 @@
-<h1 class="jumbotron-heading text-center">ข้อมูลสมาชิก</h1>
+<h1 class="jumbotron-heading text-center">ข้อมูลบัญชีกระเป๋าเงินอิเล็กทรอนิกส์</h1>
 <div class="col-md-12">
   <button class="btn btn-light me-2" (click)="LoadData()">โหลดข้อมูล</button>
-  <button class="btn btn-success" routerLink="/user-add">เพิ่มข้อมูล</button>
+  <button class="btn btn-success" routerLink="/account-add">เพิ่มข้อมูล</button>
 </div>
 <table class="table table-bordered mt-2">
   <thead>
     <tr>
       <th class="text-center" scope="col" width="5%">ลำดับ</th>
-      <th class="text-center" scope="col" width="50%">ชื่อ - สกุล</th>
-      <th class="text-center" scope="col" width="20%">อีเมล</th>
+      <th class="text-center" scope="col" width="50%">เลขที่บัญชี</th>
+      <th class="text-center" scope="col" width="20%">ชื่อบัญชี</th>
       <th class="text-center" scope="col" width="25%">จัดการ</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of datas; let i=index;">
       <th class="text-center" scope="row">{{ i+1 }}</th>
-      <td>{{ data.prefix_name }}{{ data.name }} {{ data.lname }}</td>
-      <td>{{ data.email }}</td>
+      <td>{{ data.account_no }}</td>
+      <td>{{ data.account_name }}</td>
       <th class="text-center">
         <button class="btn btn-warning me-2" (click)="Edit(data.id)">Edit</button>
         <button class="btn btn-danger me-2" (click)="Delete(data.id)">Delete</button>
@@ -27,8 +27,3 @@
     </tr>
   </tbody>
 </table>
-
-<!-- <button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
-show = {{show}}
-<br>
-<div *ngIf="show">Text to show</div> -->

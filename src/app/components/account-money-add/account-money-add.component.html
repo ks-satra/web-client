@@ -1,0 +1,25 @@
+<h1 class="jumbotron-heading text-center">เพิ่มข้อมูลรายการเติมเงินเข้าบัญชีกระเป๋าเงินอิเล็กทรอนิกส์</h1>
+<form>
+    <div class="mb-3">
+        <label for="account_money_no" class="form-label">รหัสอ้างอิง</label>
+        <input type="text" class="form-control" id="account_money_no" name="account_money_no" [(ngModel)]="data.account_money_no" placeholder="รหัสอ้างอิง">
+    </div>
+    <div class="mb-3">
+        <label for="account_money_type_id" class="form-label">ช่องทาง</label>
+        <select class="form-control" id="account_money_type_id" name="account_money_type_id" [(ngModel)]="data.account_money_type_id">
+            <option *ngFor="let account_money_type_id of accounts_money_type" value="{{ account_money_type_id.id }}">{{ account_money_type_id.account_money_type_name }}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="account_id" class="form-label">บัญชีกระเป๋าเงินอิเล็กทรีอนิกส์</label>
+        <select class="form-control" id="account_id" name="account_id" [(ngModel)]="data.account_id">
+            <option *ngFor="let account of accounts" value="{{ account.id }}">{{ account.account_no }} - {{ account.account_name }}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="account_money_name" class="form-label">จำนวนเงิน</label>
+        <input type="text" class="form-control" id="account_money_name" name="account_money_name" [(ngModel)]="data.account_money_name"
+            placeholder="จำนวนเงิน">
+    </div>
+    <button class="btn btn-success" (click)="AddData()">บันทึก</button>
+</form>

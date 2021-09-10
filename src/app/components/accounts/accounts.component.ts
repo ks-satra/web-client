@@ -4,12 +4,11 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  selector: 'app-accounts',
+  templateUrl: './accounts.component.html',
+  styleUrls: ['./accounts.component.css']
 })
-export class UsersComponent implements OnInit {
-
+export class AccountsComponent implements OnInit {
   datas: any = [];
   // show = true;
   constructor(
@@ -21,13 +20,13 @@ export class UsersComponent implements OnInit {
     this.LoadData();
   }
   LoadData() {
-    this.httpClient.get(this.api.url + "api/users").subscribe((res: any) => {
+    this.httpClient.get(this.api.url + "api/accounts").subscribe((res: any) => {
       this.datas = res;
     });
   }
   Delete(id: any) {
     if (!confirm("คุณต้องการลบข้อมูลไหม ?")) return;
-    this.httpClient.delete(this.api.url + "api/user/del/" + id).subscribe((res: any) => {
+    this.httpClient.delete(this.api.url + "api/account/del/" + id).subscribe((res: any) => {
       if (res.status == "OK") {
         this.LoadData();
       }
@@ -44,6 +43,7 @@ export class UsersComponent implements OnInit {
     });
   }
   Edit(id: any) {
-    this.router.navigate(['/user-edit/' + id]);
+    this.router.navigate(['/account-edit/' + id]);
   }
+
 }

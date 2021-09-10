@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  selector: 'app-accounts-money',
+  templateUrl: './accounts-money.component.html',
+  styleUrls: ['./accounts-money.component.css']
 })
-export class UsersComponent implements OnInit {
+export class AccountsMoneyComponent implements OnInit {
 
   datas: any = [];
   // show = true;
@@ -21,13 +21,13 @@ export class UsersComponent implements OnInit {
     this.LoadData();
   }
   LoadData() {
-    this.httpClient.get(this.api.url + "api/users").subscribe((res: any) => {
+    this.httpClient.get(this.api.url + "api/accounts_money").subscribe((res: any) => {
       this.datas = res;
     });
   }
   Delete(id: any) {
     if (!confirm("คุณต้องการลบข้อมูลไหม ?")) return;
-    this.httpClient.delete(this.api.url + "api/user/del/" + id).subscribe((res: any) => {
+    this.httpClient.delete(this.api.url + "api/accounts_money/del/" + id).subscribe((res: any) => {
       if (res.status == "OK") {
         this.LoadData();
       }
@@ -44,6 +44,7 @@ export class UsersComponent implements OnInit {
     });
   }
   Edit(id: any) {
-    this.router.navigate(['/user-edit/' + id]);
+    this.router.navigate(['/accounts-money-edit/' + id]);
   }
+
 }
